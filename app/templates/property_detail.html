@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="mt-5 pt-3">
+  <div class="card mx-auto" style="max-width: 800px;">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="{{ url_for('get_image', filename=property.photo) }}" 
+     class="img-fluid rounded-start" 
+     style="width: 100%; height: 300px; object-fit: cover;" 
+     alt="{{ property.title }}">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h4 class="card-title fw-bold">{{ property.title }}</h4>
+          <span class="badge bg-primary me-1">${{ property.price }}</span>
+          <span class="badge bg-warning text-dark">{{ property.property_type }}</span>
+          <p class="card-text mt-3">{{ property.description }}</p>
+          <p><strong>🛏 {{ property.no_of_rooms }} Bedrooms</strong> &nbsp; <strong>🚿 {{ property.no_of_bathrooms }} Bathrooms</strong></p>
+          <p>📍 {{ property.location }}</p>
+          <button type="button" class="btn btn-success">Email Realtor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
